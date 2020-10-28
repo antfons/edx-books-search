@@ -10,7 +10,6 @@ def main():
     db_manager = DatabaseManager()
     fails_counter = 0
     added_count = 0
-    row_counter = 0
     
     with open("books.csv") as csv_file:
         reader = csv.reader(csv_file)
@@ -33,8 +32,6 @@ def main():
                     fails_counter+= 1
                     print(fails_counter)
                     pass
-            row_counter += 1
-            print(row_counter)
         print(f"Added: {added_count} books")
     
                 
