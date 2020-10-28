@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+
+
+{% block body%}
+    <div>
+        
+        <form action="{{ url_for('search_books') }}" method="post">
+            <input type="text" name="information" 
+            placeholder="Search for an Author, Title of book or isbn of the book" class="form-control">
+            <div class="container">
+                <div class="center">
+                    <button class="btn btn-secondary">Search</button>
+                </div>
+              </div>
+            
+        </form>
+    </div>
+    {% if db_result %}
+    <div class="alert alert-warning" role="alert">
+        {{ db_result}}
+    </div>
+    {% endif%}
+
+
+{% endblock%}

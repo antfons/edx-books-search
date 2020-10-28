@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block body%}
+    <table class="table">
+            <tr>
+                <td>Title</td>
+                <td>Author</td>
+                <td>More</td>
+            </tr>
+
+        {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td><a href="{{ url_for('more_information', book_id = book.id)}}"> Details</a></td>
+            </tr>           
+
+   {% endfor %}     
+    </table>
+    {% if db_result %}
+    <div class="alert alert-warning" role="alert">
+        {{ db_result}}
+    </div>
+    {% endif%}
+
+{% endblock%}

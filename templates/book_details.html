@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block body%}
+    <table class="table">
+            <tr>
+                <td>Title</td>
+                <td>Author</td>
+                <td>Publication Year</td>
+                <td>ISBN</td>
+                <td>Average Rating</td>
+                <td>Number of Ratings</td>
+            </tr>
+            <tr>
+                <td>{{ book["title"] }}</td>
+                <td>{{ book["author"] }}</td>
+                <td>{{ book["year"] }}</td>
+                <td>{{ book["isbn"] }}</td>
+                <td>{{ book["average_rating"] }}</td>
+                <td>{{ book["review_count"] }}</td>
+            </tr>   
+
+        </table>
+        
+            
+        {% if db_result %}
+        <div class="alert alert-warning" role="alert">
+            {{ db_result}}
+        </div>
+        {% endif%}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="page-header">
+                    <h1><small class="float-right">{{ reviews|length }}</small> Comments </h1>
+                    </div> 
+                    <div class="comments-list">
+                        {% for review in reviews %}
+                        <div class="media">          
+                            <div class="media-body">
+                                
+                            <h4 class="media-heading user_name">{{ review.username }}</h4>
+                            <h4 class="media-heading user_name">Rating: {{ review.rating }}</h4>
+                            {{ review.text }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>   
+                </div>    
+            </div>
+            <form action="{{ url_for('insert_review') }}" method="post">
+                <label>Give your review</label>
+                <br>
+                <textarea name="review_text" class="form-control" rows="3">
+                </textarea>
+                <br>
+                Rating
+                <input type="number" name="rating" min="1" max="5">
+                <input type="hidden" name="book_id" value="{{ book['id'] }}"">
+                <br>
+                <button class="btn btn-light">Submit</button>
+            </form>
+        </div>
+
+
+
+{% endblock%}
