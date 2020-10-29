@@ -73,7 +73,7 @@ A lightweight WSGI web application framework for Python.
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/this/project/blob/master/LICENSE)
+This project is licensed under the [MIT License](https://github.com/this/project/blob/main/LICENSE)
 
 
 ## Motivation
