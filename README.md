@@ -28,7 +28,11 @@ You can run this application by cloning the repository and running it with pytho
 - To use the application correctly, you'll also need a uri of your database. I've tested it with a postgres database hosted on heroku. [Heroku](https://www.heroku.com/ "Heroku")
 - And you'll also need a public key for Goodreads API. [Goodreads](https://www.goodreads.com/api "Goodreads")
 
-### Install python dependencies
+### Install python dependencies. Enter project folder and execute:
+```console
+pipenv install
+```
+### Activate python environment
 ```console
 pipenv shell
 ```
