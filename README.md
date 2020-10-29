@@ -2,7 +2,7 @@
 
 # Edx Books Search 
 
-![Backend lang](https://img.shields.io/badge/python-3.6-green)
+![Backend lang](https://img.shields.io/badge/python-3.8-green)
 
 
 ![Gif](https://media.giphy.com/media/Y1w3UooFM7tnDpIn6k/giphy.gif)
